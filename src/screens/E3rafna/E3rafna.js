@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 
 import withImageOverlay from '../../components/hoc/withImageOverlay/withImageOverlay';
 
+const e3rafna_background = require('../../assets/images/e3rafna_background.jpeg');
+
 class E3rafna extends Component {
   render() {
     return (
@@ -20,7 +22,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withImageOverlay(
-  E3rafna,
-  'https://images.pexels.com/photos/1323864/pexels-photo-1323864.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-);
+export default withImageOverlay(E3rafna, e3rafna_background);

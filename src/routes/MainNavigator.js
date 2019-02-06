@@ -39,7 +39,7 @@ const RootStack = createStackNavigator(
             <Text
               style={{ marginRight: 20, fontSize: 20, color: colors.secondary }}
             >
-              اعرف احنا بنعمل ايه
+              اعرف احنا بنعمل ايه 👀
             </Text>
           );
           headerStyle = {
@@ -52,7 +52,7 @@ const RootStack = createStackNavigator(
             <Text
               style={{ marginRight: 20, fontSize: 20, color: colors.secondary }}
             >
-              اتواصل معانا
+              اتواصل معانا 🙋‍♂️
             </Text>
           );
           headerStyle = {
@@ -65,7 +65,7 @@ const RootStack = createStackNavigator(
             <Text
               style={{ marginRight: 20, fontSize: 20, color: colors.secondary }}
             >
-              اعرف احنا مين
+              اعرف احنا مين 💃
             </Text>
           );
           headerStyle = {

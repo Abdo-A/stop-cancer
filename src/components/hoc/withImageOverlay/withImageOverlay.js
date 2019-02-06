@@ -5,12 +5,7 @@ import { Image, StyleSheet, ScrollView } from 'react-native';
 const withImageOverlay = (WrappedComponent, imageURL, backgroundColor) => {
   return () => (
     <View style={styles.container}>
-      <Image
-        style={styles.container}
-        source={{
-          uri: imageURL
-        }}
-      />
+      <Image style={styles.container} source={imageURL} />
       <ScrollView
         style={{
           ...StyleSheet.absoluteFillObject,

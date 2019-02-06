@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 
 import withImageOverlay from '../../components/hoc/withImageOverlay/withImageOverlay';
 
+const etwasel_background = require('../../assets/images/etwasel_background.jpeg');
+
 class Etwasel extends Component {
   render() {
     return (
@@ -20,7 +22,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withImageOverlay(
-  Etwasel,
-  'https://images.pexels.com/photos/305565/pexels-photo-305565.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-);
+export default withImageOverlay(Etwasel, etwasel_background);
