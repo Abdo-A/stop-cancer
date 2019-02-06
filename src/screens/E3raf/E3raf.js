@@ -1,14 +1,18 @@
 import { StyleSheet } from 'react-native';
-import { Text, View } from 'native-base';
 import React, { Component } from 'react';
 
+import cancerData from '../../assets/data/cancerData';
 import withImageOverlay from '../../components/hoc/withImageOverlay/withImageOverlay';
+import { Text, View } from 'native-base';
+import Card from '../../components/Card/Card';
 
 class E3raf extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hi</Text>
+        <Card header="HI" body="joh" />
+        <Card header="HI" body="joh" />
+        <Card header="HI" body="joh" />
       </View>
     );
   }
