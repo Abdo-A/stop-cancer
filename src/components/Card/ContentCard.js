@@ -3,9 +3,9 @@ import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const ContentCard = ({ header, body, align, imageURL }) => {
+const ContentCard = ({ header, body, align, imageURL, marginBottom }) => {
   return (
-    <Card style={{ marginBottom: 20 }}>
+    <Card style={{ marginBottom: marginBottom ? marginBottom : 100 }}>
       {header ? (
         <CardItem
           header
