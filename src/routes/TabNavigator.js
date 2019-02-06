@@ -5,7 +5,7 @@ import IonIcon from 'react-native-vector-icons/Ionicons';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import React from 'react';
 
-import { colors, sizes } from '../assets/base';
+import { colors, sizes } from '../assets/styles/base';
 import E3raf from '../screens/E3raf/E3raf';
 import E3rafna from '../screens/E3rafna/E3rafna';
 import Etwasel from '../screens/Etwasel/Etwasel';

@@ -1,4 +1,4 @@
-import { Card, CardItem, Text, View } from 'native-base';
+import { Card, CardItem, Text, List, ListItem } from 'native-base';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -22,9 +22,28 @@ const CardShow = ({ header, body, align }) => {
           justifyContent: align === 'right' ? 'flex-end' : 'flex-start'
         }}
       >
-        <Text style={{ textAlign: align === 'right' ? 'right' : 'left' }}>
-          {body}
-        </Text>
+        {typeof body === 'string' ? (
+          <Text style={{ textAlign: align === 'right' ? 'right' : 'left' }}>
+            {body}
+          </Text>
+        ) : (
+          <List>
+            {body.map((item) => (
+              <ListItem
+                style={{
+                  justifyContent: align === 'right' ? 'flex-end' : 'flex-start'
+                }}
+                key={item}
+              >
+                <Text
+                  style={{ textAlign: align === 'right' ? 'right' : 'left' }}
+                >
+                  {item}
+                </Text>
+              </ListItem>
+            ))}
+          </List>
+        )}
       </CardItem>
     </Card>
   );
