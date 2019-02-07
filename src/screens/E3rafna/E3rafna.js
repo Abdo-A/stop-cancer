@@ -13,16 +13,15 @@ class E3rafna extends Component {
   state = {};
 
   onButtonPress = (item) => {
-    this[item].fadeOutLeft(1200).then(() =>
-      this.setState({
-        [item]: {
-          showMyEmoji: true,
-          myEmojiIndex: Math.floor(
-            (Math.random() * emojis.length) % emojis.length
-          )
-        }
-      })
-    );
+    this[item].fadeOutLeft(1200);
+    this.setState({
+      [item]: {
+        showMyEmoji: true,
+        myEmojiIndex: Math.floor(
+          (Math.random() * emojis.length) % emojis.length
+        )
+      }
+    });
   };
 
   onEmojiPress = (item) => {
@@ -37,7 +36,7 @@ class E3rafna extends Component {
           <View
             key={member}
             style={{
-              height: (Dimensions.get('window').height - 200) / teamData.length,
+              height: (Dimensions.get('window').height - 215) / teamData.length,
               justifyContent: 'center'
             }}
           >
@@ -74,7 +73,6 @@ class E3rafna extends Component {
 const styles = StyleSheet.create({
   container: {
     margin: 30,
-    // height: Dimensions.get('window').height - 250,
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
@@ -87,9 +85,10 @@ const styles = StyleSheet.create({
   emojiContainer: {
     alignSelf: 'center',
     justifyContent: 'center',
-    marginBottom: 30
+    marginBottom: 30,
+    position: 'absolute'
   },
-  emoji: { fontSize: 30, margin: 0 }
+  emoji: { fontSize: 60, margin: 0 }
 });
 
 export default withImageOverlay(E3rafna, e3rafna_background);

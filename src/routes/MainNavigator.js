@@ -1,5 +1,5 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import { Text } from 'native-base';
+import { Text, Button } from 'native-base';
 import React from 'react';
 
 import { colors } from '../assets/styles/base';
@@ -67,6 +67,14 @@ const RootStack = createStackNavigator(
             >
               اعرف احنا مين 💃
             </Text>
+          );
+          headerLeft = (
+            <Button
+              onPress={() => console.log('عملنا كوميكس')}
+              style={{ marginLeft: 20, marginTop: 10, height: 30 }}
+            >
+              <Text>شوف الكوميكس بتاعتنا</Text>
+            </Button>
           );
           headerStyle = {
             backgroundColor: colors.primary
