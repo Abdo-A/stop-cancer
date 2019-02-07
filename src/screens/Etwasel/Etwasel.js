@@ -7,6 +7,7 @@ import { API_URL } from '../../keys';
 import { colors } from '../../assets/styles/base';
 import ContentCard from '../../components/Card/ContentCard';
 import isEnglishCharacter from '../../assets/helpers/isEnglishCharacter';
+import QuickNotification from '../../components/QuickNotification/QuickNotification';
 import withImageOverlay from '../../components/hoc/withImageOverlay/withImageOverlay';
 
 const etwasel_background = require('../../assets/images/etwasel_background.jpeg');
@@ -33,9 +34,10 @@ class Etwasel extends Component {
     });
   };
 
-  isPostingMessage = (writer, text) => {
+  postMessage = (writer, text) => {
     this.setState(() => ({ isPostingMessage: true }));
     axios.post(`${API_URL}/api/message/new`, { writer, text }).then((res) => {
+      QuickNotification('تمام ^_^');
       this.getMessages();
       this.setState(() => ({ isPostingMessage: false, postModalOpen: false }));
     });
@@ -48,26 +50,36 @@ class Etwasel extends Component {
     return (
       <View style={styles.container}>
         <Button
-          onPress={() => navigation.navigate('SendMessage')}
+          onPress={() =>
+            navigation.navigate('SendMessage', {
+              postMessage: this.postMessage
+            })
+          }
           style={styles.button}
         >
           <Text style={styles.buttonText}>ابعتلنا</Text>
         </Button>
 
         {(isGettingMessages || isPostingMessage) && (
-          <ActivityIndicator
-            size="large"
-            color={colors.primary}
-            style={{ marginTop: 100 }}
-          />
+          <View style={{ marginTop: 100, marginBottom: 20 }}>
+            <ActivityIndicator size="large" color={colors.primary} />
+            <Text style={{ textAlign: 'center', color: colors.primary }}>
+              Loading..
+            </Text>
+          </View>
         )}
 
         {messages.map((message) => (
           <ContentCard
-            key={message}
+            key={message._id}
             header={message.writer}
             body={message.text}
-            align={isEnglishCharacter(message.text[0]) ? 'left' : 'right'}
+            marginBottom={60}
+            align={
+              message.text && isEnglishCharacter(message.text[0])
+                ? 'left'
+                : 'right'
+            }
           />
         ))}
       </View>

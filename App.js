@@ -1,4 +1,5 @@
 import { Font } from 'expo';
+import { Root } from 'native-base';
 import React, { Component } from 'react';
 
 import Loading from './src/components/Loading/Loading';
@@ -37,6 +38,10 @@ export default class App extends Component {
       return <Loading />;
     }
 
-    return <MainNavigator />;
+    return (
+      <Root>
+        <MainNavigator />
+      </Root>
+    );
   }
 }

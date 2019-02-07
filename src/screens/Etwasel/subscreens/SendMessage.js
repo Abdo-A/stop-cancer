@@ -1,27 +1,61 @@
+import { Textarea, Button, Input } from 'native-base';
 import { View, Text } from 'native-base';
 import React, { Component } from 'react';
 
-import { colors } from '../../../assets/styles/base';
 import withImageOverlay from '../../../components/hoc/withImageOverlay/withImageOverlay';
+import QuickNotification from '../../../components/QuickNotification/QuickNotification';
 
 const send_message_background = require('../../../assets/images/send_message_background.jpg');
 
 class SendMessage extends Component {
-  static navigationOptions = () => ({
-    headerRight: (
-      <Text style={{ marginRight: 20, fontSize: 30, color: colors.secondary }}>
-        😅 😅 😅
-      </Text>
-    ),
-    headerStyle: {
-      backgroundColor: colors.primary
+  state = {
+    writer: '',
+    text: ''
+  };
+
+  onSend = () => {
+    const { navigation } = this.props;
+    const postMessage = navigation.getParam('postMessage', () => {});
+    if (!this.state.writer) {
+      QuickNotification('فين اسمك؟');
+    } else if (!this.state.text) {
+      QuickNotification('فين رسالتك؟');
+    } else {
+      postMessage(this.state.writer, this.state.text);
+      navigation.goBack();
     }
-  });
+  };
 
   render() {
     return (
-      <View>
-        <Text>Hi</Text>
+      <View style={{ paddingHorizontal: 30 }}>
+        <View>
+          <Input
+            placeholder="اسمك"
+            style={{
+              backgroundColor: '#ffffffc7',
+              marginTop: 100,
+              marginBottom: 100
+            }}
+            onChangeText={(t) => this.setState({ writer: t })}
+          />
+        </View>
+        <View>
+          <Textarea
+            rowSpan={5}
+            bordered
+            placeholder="رسالتك"
+            style={{ backgroundColor: '#ffffffc7' }}
+            onChangeText={(t) => this.setState({ text: t })}
+          />
+        </View>
+
+        <Button
+          onPress={this.onSend}
+          style={{ alignSelf: 'center', marginTop: 20 }}
+        >
+          <Text>Send</Text>
+        </Button>
       </View>
     );
   }
