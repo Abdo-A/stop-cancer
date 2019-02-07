@@ -44,7 +44,7 @@ export default createMaterialTopTabNavigator(
   {
     // Config
 
-    initialRouteName: 'E3raf',
+    initialRouteName: 'Etwasel',
     order: ['E3rafna', 'Etwasel', 'E3raf'],
     tabBarPosition: 'bottom',
     swipeEnabled: true,

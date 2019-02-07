@@ -3,11 +3,13 @@ import { Text, Button } from 'native-base';
 import React from 'react';
 
 import { colors } from '../assets/styles/base';
+import SendMessage from '../screens/Etwasel/subscreens/SendMessage';
 import TabNavigator from './TabNavigator';
 
 const RootStack = createStackNavigator(
   {
-    Tab: TabNavigator
+    Tab: TabNavigator,
+    SendMessage: SendMessage
   },
   {
     initialRouteName: 'Tab',
@@ -93,8 +95,35 @@ const RootStack = createStackNavigator(
         };
       }
 
+      if (screen === 'SendMessage') {
+        (headerRight = (
+          <Text
+            style={{ marginRight: 20, fontSize: 30, color: colors.secondary }}
+          >
+            ابعتلنا
+          </Text>
+        )),
+          (headerStyle = {
+            backgroundColor: colors.primary
+          });
+      }
+
+      if (screen === 'Comics') {
+        (headerRight = (
+          <Text
+            style={{ marginRight: 20, fontSize: 30, color: colors.secondary }}
+          >
+            😅 😅 😅
+          </Text>
+        )),
+          (headerStyle = {
+            backgroundColor: colors.primary
+          });
+      }
+
       // Return these for other screens
       return {
+        headerRight,
         headerStyle,
         headerTitleStyle
       };

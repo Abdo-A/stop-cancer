@@ -3,7 +3,7 @@ import { View } from 'native-base';
 import { Image, StyleSheet, ScrollView } from 'react-native';
 
 const withImageOverlay = (WrappedComponent, imageURL, backgroundColor) => {
-  return () => (
+  return (props) => (
     <View style={styles.container}>
       <Image style={styles.container} source={imageURL} />
       <ScrollView
@@ -12,7 +12,7 @@ const withImageOverlay = (WrappedComponent, imageURL, backgroundColor) => {
           backgroundColor: backgroundColor ? backgroundColor : 'rgba(0,0,0,0.5)'
         }}
       >
-        <WrappedComponent />
+        <WrappedComponent {...props} />
       </ScrollView>
     </View>
   );

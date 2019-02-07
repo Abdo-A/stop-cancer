@@ -7,7 +7,7 @@ const ContentCard = ({ header, body, align, imageURL, marginBottom }) => {
   return (
     <Card
       style={{
-        marginBottom: marginBottom ? marginBottom : 100
+        marginBottom: !isNaN(marginBottom) ? marginBottom : 100
       }}
     >
       {header ? (
