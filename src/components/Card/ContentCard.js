@@ -3,7 +3,15 @@ import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const ContentCard = ({ header, body, align, imageURL, marginBottom }) => {
+const ContentCard = ({
+  header,
+  body,
+  align,
+  imageURL,
+  marginBottom,
+  resizeMode,
+  height
+}) => {
   return (
     <Card
       style={{
@@ -32,9 +40,9 @@ const ContentCard = ({ header, body, align, imageURL, marginBottom }) => {
       {imageURL ? (
         <CardItem cardBody>
           <Image
-            resizeMode="stretch"
+            resizeMode={resizeMode ? resizeMode : 'stretch'}
             source={imageURL}
-            style={{ height: 200, width: null, flex: 1 }}
+            style={{ height: height ? height : 200, width: null, flex: 1 }}
           />
         </CardItem>
       ) : null}

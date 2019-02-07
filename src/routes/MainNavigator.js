@@ -3,13 +3,15 @@ import { Text, Button } from 'native-base';
 import React from 'react';
 
 import { colors } from '../assets/styles/base';
+import Comics from '../screens/E3rafna/subscreens/Comics';
 import SendMessage from '../screens/Etwasel/subscreens/SendMessage';
 import TabNavigator from './TabNavigator';
 
 const RootStack = createStackNavigator(
   {
     Tab: TabNavigator,
-    SendMessage: SendMessage
+    SendMessage: SendMessage,
+    Comics: Comics
   },
   {
     initialRouteName: 'Tab',
@@ -72,7 +74,7 @@ const RootStack = createStackNavigator(
           );
           headerLeft = (
             <Button
-              onPress={() => console.log('عملنا كوميكس')}
+              onPress={() => navigation.navigate('Comics')}
               style={{ marginLeft: 20, marginTop: 10, height: 30 }}
             >
               <Text>شوف الكوميكس بتاعتنا</Text>

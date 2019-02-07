@@ -4,26 +4,32 @@
     "slug": "stop-cancer",
     "privacy": "public",
     "sdkVersion": "32.0.0",
-    "platforms": [
-      "ios",
-      "android"
-    ],
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icons/icon.png",
+    "notification": {
+      "icon": "./assets/icons/icon144x144.png",
+      "color": "#000000"
+    },
+    "loading": {
+      "icon": "./assets/icons/icon500x500.png"
+    },
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "image": "./assets/icons/splash.png",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.abdo.stop"
+    },
+    "android": {
+      "package": "com.abdo.stop"
     }
   }
 }
