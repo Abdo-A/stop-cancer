@@ -1,7 +1,9 @@
 import { StyleSheet, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { Text, View, Button } from 'native-base';
-import React, { Component } from 'react';
 import * as Animatable from 'react-native-animatable';
+import React, { Component } from 'react';
+
+import emojis from '../../assets/data/emojis';
 import teamData from '../../assets/data/teamData';
 import withImageOverlay from '../../components/hoc/withImageOverlay/withImageOverlay';
 
@@ -15,7 +17,9 @@ class E3rafna extends Component {
       this.setState({
         [item]: {
           showMyEmoji: true,
-          myEmojiIndex: Math.floor((Math.random() * this.emojis.length) % 12)
+          myEmojiIndex: Math.floor(
+            (Math.random() * emojis.length) % emojis.length
+          )
         }
       })
     );
@@ -26,26 +30,17 @@ class E3rafna extends Component {
     this[item].fadeInLeft(1200);
   };
 
-  emojis = [
-    '🐶',
-    '🐞',
-    '🙈',
-    '🙆🏼',
-    '💃',
-    '🌮',
-    '🐠',
-    '😂',
-    '👓',
-    '🍉',
-    '🎮',
-    '🤹🏻‍♀️'
-  ];
-
   render() {
     return (
       <View style={styles.container}>
         {teamData.map((member, i) => (
-          <View key={member}>
+          <View
+            key={member}
+            style={{
+              height: (Dimensions.get('window').height - 200) / teamData.length,
+              justifyContent: 'center'
+            }}
+          >
             <Animatable.View
               animation="fadeInLeft"
               ref={(ref) => (this[member] = ref)}
@@ -55,9 +50,7 @@ class E3rafna extends Component {
                 success
                 style={styles.button}
               >
-                <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
-                  {member}
-                </Text>
+                <Text style={styles.name}>{member}</Text>
               </Button>
             </Animatable.View>
             {this.state[member] && this.state[member].showMyEmoji ? (
@@ -66,7 +59,7 @@ class E3rafna extends Component {
                   onPress={() => this.onEmojiPress(member)}
                 >
                   <Text style={styles.emoji}>
-                    {this.emojis[this.state[member].myEmojiIndex]}
+                    {emojis[this.state[member].myEmojiIndex]}
                   </Text>
                 </TouchableWithoutFeedback>
               </View>
@@ -81,7 +74,7 @@ class E3rafna extends Component {
 const styles = StyleSheet.create({
   container: {
     margin: 30,
-    height: Dimensions.get('window').height - 250,
+    // height: Dimensions.get('window').height - 250,
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
@@ -90,9 +83,11 @@ const styles = StyleSheet.create({
     width: '50%',
     justifyContent: 'center'
   },
+  name: { fontWeight: 'bold', fontSize: 17 },
   emojiContainer: {
     alignSelf: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginBottom: 30
   },
   emoji: { fontSize: 30, margin: 0 }
 });
