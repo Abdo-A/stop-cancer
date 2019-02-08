@@ -1,4 +1,4 @@
-import { Card, CardItem, Text, List, ListItem } from 'native-base';
+import { Card, CardItem, Text, List, ListItem, Right } from 'native-base';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -10,7 +10,8 @@ const ContentCard = ({
   imageURL,
   marginBottom,
   resizeMode,
-  height
+  height,
+  date
 }) => {
   return (
     <Card
@@ -87,6 +88,11 @@ const ContentCard = ({
           )}
         </CardItem>
       ) : null}
+      {date && (
+        <CardItem style={{ justifyContent: 'flex-end' }}>
+          <Text>{date}</Text>
+        </CardItem>
+      )}
     </Card>
   );
 };

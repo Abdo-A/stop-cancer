@@ -52,7 +52,13 @@ class SendMessage extends Component {
 
         <Button
           onPress={this.onSend}
-          style={{ alignSelf: 'center', marginTop: 20 }}
+          style={{
+            alignSelf: 'center',
+            marginTop: 20,
+            width: '40%',
+            height: 40,
+            justifyContent: 'center'
+          }}
         >
           <Text>Send</Text>
         </Button>

@@ -12,9 +12,9 @@ import Etwasel from '../screens/Etwasel/Etwasel';
 
 export default createMaterialTopTabNavigator(
   {
+    //--specific navigationOptions for each tab
     E3raf: {
       screen: E3raf,
-      //--specific navigationOptions for each tab
       navigationOptions: {
         tabBarLabel: 'اعرف',
         tabBarIcon: ({ tintColor }) => (
@@ -44,7 +44,7 @@ export default createMaterialTopTabNavigator(
   {
     // Config
 
-    initialRouteName: 'Etwasel',
+    initialRouteName: 'E3raf',
     order: ['E3rafna', 'Etwasel', 'E3raf'],
     tabBarPosition: 'bottom',
     swipeEnabled: true,

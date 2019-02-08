@@ -80,6 +80,7 @@ class Etwasel extends Component {
                 ? 'left'
                 : 'right'
             }
+            date={new Date(message.date).toDateString()}
           />
         ))}
       </View>
